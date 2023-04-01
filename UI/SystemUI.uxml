@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:GroupBox name="SystemUIBox" style="flex-direction: row; margin-left: 5px; margin-right: 5px; margin-top: 3px; background-color: rgba(255, 255, 255, 255); -unity-font-style: bold; font-size: 32px;">
+        <ui:Button text="建設" display-tooltip-when-elided="true" name="Build" style="width: auto; height: auto; flex-basis: 10%;" />
+        <ui:Button text="情報" display-tooltip-when-elided="true" name="Information" style="flex-basis: 10%;" />
+    </ui:GroupBox>
+</ui:UXML>
