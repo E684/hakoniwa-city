@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using HakoniwaCity;
 using HakoniwaCity.Ability;
 using HakoniwaCity.Character;
-public class Citizen : ICitizen
+public class Citizen : ICharacterView, IWorkerView
 {
     private ICharacter _character;
     private IWorker _worker;
@@ -17,12 +17,13 @@ public class Citizen : ICitizen
         _worker = new WorkerOperator(transform, initialAbilities);
     }
 
-    /////////////////////// ICitizen
+    /////////////////////// ICharacterView
     public ICharacter GetCharacter()
     {
         return _character;
     }
 
+    /////////////////////// IWorkerView
     public IWorker GetWorker()
     {
         return _worker;
