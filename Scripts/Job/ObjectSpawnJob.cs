@@ -41,7 +41,7 @@ public class ObjectSpawnJob : IJob
                 }
                 else if (_currentProgress.value > 0f)
                 {
-                    _status = JobStatus.IN_PROGRESS;
+                    SetCurrentStatus(JobStatus.IN_PROGRESS);
                 }
                 break;
             case JobStatus.IN_PROGRESS:
@@ -60,7 +60,7 @@ public class ObjectSpawnJob : IJob
     }
     private void Complete()
     {
-        _status = JobStatus.COMPLETE;
+        SetCurrentStatus(JobStatus.COMPLETE);
         Spawn();
 
         _onCompleted();
@@ -87,6 +87,11 @@ public class ObjectSpawnJob : IJob
         return _status;
     }
 
+    public void ResetJobStatus(){
+        SetCurrentStatus(JobStatus.NOT_STARTED);
+        SetCurrentProgress(0f);
+    }
+
     AbilityKind[] IJob.GetRequiredResources()
     {
         return _requiredAbility;
@@ -104,11 +109,17 @@ public class ObjectSpawnJob : IJob
 
     void IJob.WorkOn(AbilityValue value)
     {
-        HakoniwaLogger.Log($"ConstructionJob.WorkOn: _currentProgress.value = {_currentProgress.value}");
         if (_status != JobStatus.COMPLETE)
         {
-            _currentProgress.value = _currentProgress.value + value.value;
+            SetCurrentProgress(_currentProgress.value + value.value);
             UpdateStatus();
         }
+    }
+
+    private void SetCurrentProgress(float value){
+        _currentProgress.value = value;
+    }
+    private void SetCurrentStatus(JobStatus status){
+        _status = status;
     }
 }
