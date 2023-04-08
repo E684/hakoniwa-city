@@ -11,6 +11,7 @@ namespace HakoniwaCity
         {
             public AbilityKind[] GetRequiredResources();
             public JobStatus GetJobStatus();
+            public void ResetJobStatus();
             public JobProgress GetJobProgress();
             public void WorkOn(AbilityValue value);
 

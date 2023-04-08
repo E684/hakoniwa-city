@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using HakoniwaCity.Ability;
 
 public class ConstructionAbility : IAbility
@@ -9,16 +10,16 @@ public class ConstructionAbility : IAbility
     private AbilityRank _rank;
     private AbilityValue _value;
 
-    public ConstructionAbility()
-    {
-        _rank.value = 0f;
-        _value.value = 0f;
-    }
-
     public ConstructionAbility(AbilityValue initialAbilityValue)
     {
         _rank.value = 0f;
         _value = initialAbilityValue;
+    }
+
+    public ConstructionAbility()
+    {
+        _rank.value = 0f;
+        _value.value = 0f;
     }
 
     public AbilityKind GetKind()
