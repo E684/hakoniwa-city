@@ -105,6 +105,10 @@ public class ConstructionSite : IConstructionSite, IJob, IPrefabView
         return _job.GetJobStatus();
     }
 
+    public void ResetJobStatus(){
+        _job.ResetJobStatus();
+    }
+
     public void WorkOn(AbilityValue value)
     {
         HakoniwaLogger.Log($"ConstructionSite WorkOn");

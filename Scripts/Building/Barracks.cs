@@ -68,6 +68,7 @@ public class Barracks : IBuilding, IJob
         _rotation = rotation;
     }
 
+    /// IJob
     AbilityKind[] IJob.GetRequiredResources()
     {
         return ((IJob)_job).GetRequiredResources();
@@ -101,5 +102,10 @@ public class Barracks : IBuilding, IJob
     string IJob.ToString()
     {
         return "Barracks";
+    }
+
+    public void ResetJobStatus()
+    {
+        _job.ResetJobStatus();
     }
 }
