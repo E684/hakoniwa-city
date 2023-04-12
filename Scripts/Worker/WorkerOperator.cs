@@ -1,11 +1,17 @@
+/**
+ * @file WorkerOperator.cs
+ * @brief 仕事を行うクラス
+ * @date 2023/4/12
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using HakoniwaCity;
 using HakoniwaCity.Ability;
 using HakoniwaCity.Log;
 using HakoniwaCity.Job;
+using HakoniwaCity.Worker;
 
 public class WorkerOperator : IWorker
 {
@@ -13,13 +19,14 @@ public class WorkerOperator : IWorker
     private AssignedJob _assignedJob;
     private Transform _transform;
 
-    private const float _workableDistance = 1f;
+    private float _workableDistance = 1f;
 
-    public WorkerOperator(Transform transform, List<IAbility> abilities)
+    public WorkerOperator(Transform transform, List<IAbility> abilities, float workableDistance)
     {
         _transform = transform;
         _abilities = abilities;
         _assignedJob = null;
+        _workableDistance = workableDistance;
     }
 
     ////////////////IWorker
